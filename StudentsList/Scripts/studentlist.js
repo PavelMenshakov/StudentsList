@@ -3,6 +3,8 @@
     appFolder: '../Scripts/studentlist/app',
     views: [
         'Master',
+        'Detail',
+        'StudentsView'
     ],
 
     stores: [
@@ -12,8 +14,12 @@
     launch: function () {
         Ext.create('Ext.container.Viewport', {
             title: 'Student List',
-            xtype: 'studentlist-MasterView'
-        });
+            items: [
+               {
+                   xtype: 'studentlist-MasterView',
+               }
+            ]
 
+        });
     }
 });

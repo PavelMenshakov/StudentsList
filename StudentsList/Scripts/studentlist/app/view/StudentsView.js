@@ -15,5 +15,8 @@
         text: 'Отчество',
         dataIndex: 'SName'
     }
-    ]
+    ],
+    listeners: {
+        itemclick: 'onGridSelect'
+    }
 });

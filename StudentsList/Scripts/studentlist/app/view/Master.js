@@ -1,41 +1,19 @@
 ﻿Ext.define('studentlist.view.Master', {
+    extend: 'Ext.panel.Panel',
     xtype: 'studentlist-MasterView',
     requires: [
-        'studentlist.controller.MasterViewController',
-        'studentlist.view.Detail'
+        'studentlist.controller.MasterViewController'
     ],
-    layout: 'border',
     controller: 'master',
-    store: 'Students',
+    layout: 'border',
+    height: 500,
+    width: 1024,
     items: [{
         region: 'center',
-        extend: 'Ext.grid.Panel',
-        title: 'Students List',
-        minSize: 300,
-        columns: [
-        {
-            text: 'Имя',
-            dataIndex: 'FName'
-        },
-        {
-            text: 'Фамилия',
-            dataIndex: 'LName',
-        },
-        {
-            text: 'Отчество',
-            dataIndex: 'SName'
-        }
-        ],
-
-        listeners: {
-            itemclick: 'onGridSelect'
-        }
+        xtype: 'studentlist-StudentsView',
     }, {
         region: 'east',
-        split: true,
-        collapsible: true,
-        title: 'Main information',
-        xtype: 'studentlist-DetailView'
-
+        xtype: 'studentlist-DetailView',
     }]
 });
+
