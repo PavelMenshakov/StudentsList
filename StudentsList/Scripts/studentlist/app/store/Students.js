@@ -1,5 +1,5 @@
 Ext.define('studentlist.store.Students', {
-    extend: 'Ext.data.JsonStore',
+    extend: 'Ext.data.Store',
     requires: [
         'studentlist.model.Student'
     ],
@@ -7,10 +7,8 @@ Ext.define('studentlist.store.Students', {
     storeId: 'Students',
     model: 'studentlist.model.Student',
     proxy: {                    
-        type: 'ajax',           
-        url: 'api/students',         
-        reader: {
-            type: 'json'
-        }
+        type: 'rest',           
+        url: 'api/students',
+        appendId: true
     }
 });

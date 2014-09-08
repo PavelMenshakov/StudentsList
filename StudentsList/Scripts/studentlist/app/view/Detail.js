@@ -3,9 +3,12 @@
     xtype: 'studentlist-DetailView',
 
     requires: [
-         'studentlist.view.DetailViewModel'
+         'studentlist.view.DetailViewModel',
+         'studentlist.controller.DetailViewController'
     ],
 
+    
+    controller: 'detail',
     title: 'Edit Students',
     frame: true,
     padding: 10,
@@ -16,18 +19,30 @@
     items: [
         {
             xtype: 'textfield',
-            bind: '{rec.FName}',
+            bind: '{rec.FirstName}',
             fieldLabel: 'Имя'
         },
 		{
 		    xtype: 'textfield',
-		    bind: '{rec.LName}',
+		    bind: '{rec.LastName}',
 		    fieldLabel: 'Фамилия'
 		},
         {
             xtype: 'textfield',
-            bind: '{rec.SName}',
+            bind: '{rec.SecondName}',
             fieldLabel: 'Отчество'
+        },
+        {
+            xtype: 'datefield',
+            format: 'Y-m-d',
+            bind: '{rec.BirthDate}',
+            fieldLabel: 'Дата рождения'
+        },
+        {
+            xtype: 'datefield',
+            format: 'Y-m-d',
+            bind: '{rec.IncomDate}',
+            fieldLabel: 'Дата поступления'
         },
         {
             xtype: 'hiddenfield',
@@ -36,7 +51,10 @@
         {
             xtype: 'button',
             text: 'Save',
-            itemId: 'SaveRecord'
+            itemId: 'SaveRecord',
+            listeners: {
+                click: 'onSaveChanges'
+            }
         }
     ]
 });

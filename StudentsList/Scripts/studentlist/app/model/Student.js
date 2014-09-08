@@ -3,39 +3,39 @@
 
     fields: [
         {
-            name: 'FName',
-            type: 'string'
-        },
-        {
-            name: 'LName',
-            type: 'string'
-        },
-        {
-            name: 'SName',
-            type: 'string'
-        },
-        {
             name: 'id',
             type: 'int'
         },
         {
-            name: 'sex',
+            name: 'FirstName',
+            type: 'string'
+        },
+        {
+            name: 'LastName',
+            type: 'string'
+        },
+        {
+            name: 'SecondName',
+            type: 'string'
+        },
+        {
+            name: 'Sex',
             type: 'bool'
         },
         {
-            name: 'birthDay',
+            name: 'BirthDate',
             type: 'date'
         },
         {
-            name: 'incomDay',
+            name: 'IncomDate',
             type: 'date'
         }
     ],
-    validators: {
-        FName: { type: 'length', min: 3 },
-        LName: { type: 'length', min: 3 },
-        SName: { type: 'length', min: 3 },
-        birthDay: { type: 'format', matcher: /^(\d{4})-(\d{1,2})-(\d{1,2})$/ },
-        incomDay: { type: 'format', matcher: /^(\d{4})-(\d{1,2})-(\d{1,2})$/ }
+
+
+    proxy: {
+        type: 'rest',
+        url: 'api/Students',
+        
     }
 });

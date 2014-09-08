@@ -10,17 +10,17 @@ namespace StudentsList.Models
 {
     public class Student
     {
-        public long Id { get; set; }
+        public long id { get; set; }
         
-        public string FName { get; set; }
+        public string FirstName { get; set; }
         
-        public string LName { get; set; }
+        public string LastName { get; set; }
         
-        public string SName { get; set; }
+        public string SecondName { get; set; }
         
         public bool Sex { get; set; }
         
-        public DateTime BDate { get; set; }
+        public DateTime BirthDate { get; set; }
         
         public DateTime IncomDate { get; set; }
         

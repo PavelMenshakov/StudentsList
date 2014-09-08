@@ -5,15 +5,15 @@
     columns: [
     {
         text: 'Имя',
-        dataIndex: 'FName'
+        dataIndex: 'FirstName'
     },
     {
         text: 'Фамилия',
-        dataIndex: 'LName',
+        dataIndex: 'LastName',
     },
     {
         text: 'Отчество',
-        dataIndex: 'SName'
+        dataIndex: 'SecondName'
     }
     ],
     listeners: {

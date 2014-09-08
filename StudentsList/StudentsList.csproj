@@ -129,6 +129,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\studentlist.js" />
+    <Content Include="Scripts\studentlist\app\controller\DetailViewController.js" />
     <Content Include="Scripts\studentlist\app\controller\MasterViewController.js" />
     <Content Include="Scripts\studentlist\app\model\Student.js" />
     <Content Include="Scripts\studentlist\app\store\Students.js" />

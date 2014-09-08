@@ -28,12 +28,12 @@ namespace StudentsList.Controllers
         }
 
         // POST: api/Students
-        public void Post([FromBody]string value)
+        public void Post(Student value)
         {
         }
 
         // PUT: api/Students/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(string id, Student value)
         {
         }
 
