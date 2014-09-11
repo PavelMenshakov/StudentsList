@@ -1,4 +1,4 @@
-﻿Ext.define('studentlist.view.DetailViewModel', {
+﻿Ext.define('studentlist.view.Detail.DetailViewModel', {
     extend: 'Ext.app.ViewModel',
 
     alias: 'viewmodel.detailform',

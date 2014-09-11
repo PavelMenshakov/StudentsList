@@ -133,15 +133,23 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\studentlist.js" />
-    <Content Include="Scripts\studentlist\app\controller\DetailViewController.js" />
-    <Content Include="Scripts\studentlist\app\controller\MasterViewController.js" />
+    <Content Include="Scripts\studentlist\app\model\Group.js" />
+    <Content Include="Scripts\studentlist\app\model\Subject.js" />
+    <Content Include="Scripts\studentlist\app\model\Visit.js" />
+    <Content Include="Scripts\studentlist\app\view\Detail\DetailViewController.js" />
+    <Content Include="Scripts\studentlist\app\view\Header\HeaderViewController.js" />
+    <Content Include="Scripts\studentlist\app\view\Header\HeaderViewModel.js" />
+    <Content Include="Scripts\studentlist\app\view\Master\MasterViewController.js" />
     <Content Include="Scripts\studentlist\app\model\Student.js" />
-    <Content Include="Scripts\studentlist\app\store\Students.js" />
-    <Content Include="Scripts\studentlist\app\view\Detail.js" />
-    <Content Include="Scripts\studentlist\app\view\DetailViewModel.js" />
-    <Content Include="Scripts\studentlist\app\view\Master.js" />
+    <Content Include="Scripts\studentlist\app\view\Detail\Detail.js" />
+    <Content Include="Scripts\studentlist\app\view\Detail\DetailViewModel.js" />
+    <Content Include="Scripts\studentlist\app\view\Header\Header.js" />
+    <Content Include="Scripts\studentlist\app\view\Master\Master.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Scripts\studentlist\app\view\StudentsView.js" />
+    <Content Include="Scripts\studentlist\app\view\Master\MasterViewModel.js" />
+    <Content Include="Scripts\studentlist\app\view\Students\Students.js" />
+    <Content Include="Scripts\studentlist\app\view\Students\StudentsViewController.js" />
+    <Content Include="Scripts\studentlist\app\view\Students\StudentsViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -150,6 +158,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">

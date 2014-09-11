@@ -1,9 +1,8 @@
 ﻿Ext.define('studentlist.model.Student', {
     extend: 'Ext.data.Model',
-
     fields: [
         {
-            name: 'id',
+            name: 'Id',
             type: 'int'
         },
         {
@@ -31,11 +30,12 @@
             type: 'date'
         }
     ],
-
-
+    idProperty: 'Id',
     proxy: {
         type: 'rest',
         url: 'api/Students',
-        
+        reader: {
+            type: 'json'
+        }
     }
 });

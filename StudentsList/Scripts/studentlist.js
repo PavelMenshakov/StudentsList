@@ -2,13 +2,10 @@
     name: 'studentlist',
     appFolder: '../Scripts/studentlist/app',
     views: [
-        'Master',
-        'Detail',
-        'StudentsView'
-    ],
-
-    stores: [
-        'Students'
+        'Master.Master',
+        'Detail.Detail',
+        'Students.Students',
+        'Header.Header'
     ],
 
     launch: function () {
@@ -16,7 +13,7 @@
             title: 'Student List',
             items: [
                {
-                   xtype: 'studentlist-MasterView',
+                   xtype: 'studentlist-Master',
                }
             ]
 

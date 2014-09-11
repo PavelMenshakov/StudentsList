@@ -1,21 +1,21 @@
-﻿Ext.define('studentlist.view.Detail', {
+﻿Ext.define('studentlist.view.Detail.Detail', {
     extend: 'Ext.form.Panel',
-    xtype: 'studentlist-DetailView',
+    xtype: 'studentlist-Detail',
 
     requires: [
-         'studentlist.view.DetailViewModel',
-         'studentlist.controller.DetailViewController'
+         'studentlist.view.Detail.DetailViewModel',
+         'studentlist.view.Detail.DetailViewController'
     ],
 
-    
+    viewModel: {
+        type: 'detailform'
+    },
     controller: 'detail',
     title: 'Edit Students',
     frame: true,
     padding: 10,
     reference: 'DetailView',
-    viewModel: {
-        type: 'detailform'
-    },
+
     items: [
         {
             xtype: 'textfield',

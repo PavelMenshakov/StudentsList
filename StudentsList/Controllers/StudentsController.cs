@@ -22,9 +22,28 @@ namespace StudentsList.Controllers
         }
 
         // GET: api/Students/5
-        public string Get(int id)
+        public List<Student> Get(int id)
         {
-            return "value";
+            List<Student> st = new List<Student>();
+            using (var StudentsDb = new StudentsContext())
+            {
+                var group = StudentsDb.Groups.Include("Students").FirstOrDefault(t => t.Id == id);
+                foreach (var student in group.Students)
+                {
+                    st.Add(new Student
+                    {
+                        FirstName = student.FirstName,
+                        LastName = student.LastName,
+                        SecondName = student.SecondName,
+                        BirthDate = student.BirthDate,
+                        IncomDate = student.IncomDate,
+                        Sex = student.Sex,
+                        Id = student.Id
+                    });
+                }
+
+            }
+            return st;
         }
 
         // POST: api/Students
@@ -33,8 +52,28 @@ namespace StudentsList.Controllers
         }
 
         // PUT: api/Students/5
-        public void Put(string id, Student value)
+        public void Put(int id, Student value)
         {
+            using (StudentsContext ctx = new StudentsContext())
+            {
+                var original = ctx.Students.First(s => s.Id == id);
+                if (original != null)
+                {
+                    if (!string.IsNullOrEmpty(value.FirstName))
+                        original.FirstName = value.FirstName;
+                    if (!string.IsNullOrEmpty(value.LastName))
+                        original.LastName = value.LastName;
+                    if (!string.IsNullOrEmpty(value.SecondName))
+                        original.SecondName = value.SecondName; 
+                    if(value.BirthDate.Year != 0001)
+                    original.BirthDate = value.BirthDate;
+                    if (value.IncomDate.Year != 0001)
+                    original.IncomDate = value.IncomDate;
+                    original.Sex = value.Sex;
+                    ctx.SaveChanges();
+                }
+
+            }
         }
 
         // DELETE: api/Students/5
