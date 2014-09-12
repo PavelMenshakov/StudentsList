@@ -5,18 +5,23 @@
      'studentlist.view.Students.StudentsViewModel',
      'studentlist.view.Students.StudentsViewController'
     ],
-
+    controller: 'students',
     viewModel: {
         type: 'students'
     },
+    bind: {
+        store: '{students}'
+    },
     tbar: [{
         text: 'Add',
+        reference: 'add',
         listeners: {
             click: 'onAddClick'
         }
     }, {
         text: 'Delete',
         reference: 'delete',
+        hidden: true,
         listeners: {
             click: 'onDeleteClick'
         }
@@ -36,7 +41,8 @@
     }
     ],
     listeners: {
-        itemclick: 'onGridSelect'
+        itemclick: 'onGridSelect',
+        containerclick: 'onContainerClick'
     },
     reference: 'StudentsView',
 });

@@ -51,9 +51,23 @@
         {
             xtype: 'button',
             text: 'Save',
+            hidden: true,
+            reference: 'save',
+            margin: 10,
             itemId: 'SaveRecord',
             listeners: {
                 click: 'onSaveChanges'
+            }
+        },
+        {
+            xtype: 'button',
+            text: 'Add',
+            reference: 'add',
+            margin: 10,
+            hidden: true,
+            itemId: 'AddRecord',
+            listeners: {
+                click: 'onAddRecord'
             }
         }
     ]
