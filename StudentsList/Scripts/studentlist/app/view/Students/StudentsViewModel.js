@@ -7,7 +7,6 @@
     stores: {
         students: {
             storeId: 'students',
-            autoLoad: true,
             model: 'studentlist.model.Student'
         }
     }

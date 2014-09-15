@@ -14,12 +14,6 @@
             type: 'string'
         }
     ],
-    associations: [{
-        type: 'hasMany',
-        model: 'Student',
-        name: 'Students'
-    }],
-
     proxy: {
         type: 'rest',
         url: 'api/Groups',

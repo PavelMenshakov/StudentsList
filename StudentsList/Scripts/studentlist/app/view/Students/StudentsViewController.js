@@ -2,13 +2,8 @@
     extend: 'Ext.app.ViewController',
     alias: 'controller.students',
 
-    onGridSelect: function (view, record, item, index, e, eOpts) {
-        var masterView = this.getViewModel().getParent().getView(),
-            detailView = masterView.lookupReference('DetailView');
-        this.lookupReference('delete').setVisible(true);
-        detailView.lookupReference('save').setVisible(true);
-        detailView.lookupReference('add').setVisible(false);
-        detailView.getViewModel().set('rec', record);
+    onRowSelect: function (view, record, tr, rowIndex, e, eOpts) {
+        this.getViewModel().set('studentInfo.student', record);
     },
 
     onAddClick: function () {

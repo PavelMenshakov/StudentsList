@@ -118,20 +118,6 @@
       <DependentUpon>StudentsList.Models.StudentsContext.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\ext-all-rtl-debug.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\studentlist.js" />
     <Content Include="Scripts\studentlist\app\model\Group.js" />
     <Content Include="Scripts\studentlist\app\model\Subject.js" />
@@ -139,14 +125,14 @@
     <Content Include="Scripts\studentlist\app\view\Detail\DetailViewController.js" />
     <Content Include="Scripts\studentlist\app\view\Header\HeaderViewController.js" />
     <Content Include="Scripts\studentlist\app\view\Header\HeaderViewModel.js" />
-    <Content Include="Scripts\studentlist\app\view\Master\MasterViewController.js" />
+    <Content Include="Scripts\studentlist\app\view\ViewController.js" />
     <Content Include="Scripts\studentlist\app\model\Student.js" />
     <Content Include="Scripts\studentlist\app\view\Detail\Detail.js" />
     <Content Include="Scripts\studentlist\app\view\Detail\DetailViewModel.js" />
     <Content Include="Scripts\studentlist\app\view\Header\Header.js" />
-    <Content Include="Scripts\studentlist\app\view\Master\Master.js" />
+    <Content Include="Scripts\studentlist\app\view\View.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Scripts\studentlist\app\view\Master\MasterViewModel.js" />
+    <Content Include="Scripts\studentlist\app\view\ViewModel.js" />
     <Content Include="Scripts\studentlist\app\view\Students\Students.js" />
     <Content Include="Scripts\studentlist\app\view\Students\StudentsViewController.js" />
     <Content Include="Scripts\studentlist\app\view\Students\StudentsViewModel.js" />
@@ -175,7 +161,6 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

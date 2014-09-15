@@ -41,8 +41,7 @@
     }
     ],
     listeners: {
-        itemclick: 'onGridSelect',
-        containerclick: 'onContainerClick'
+        rowclick: 'onRowSelect',
     },
     reference: 'StudentsView',
 });

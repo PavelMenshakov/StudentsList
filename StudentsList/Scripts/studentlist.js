@@ -2,7 +2,7 @@
     name: 'studentlist',
     appFolder: '../Scripts/studentlist/app',
     views: [
-        'Master.Master',
+        'View',
         'Detail.Detail',
         'Students.Students',
         'Header.Header'
@@ -13,7 +13,8 @@
             title: 'Student List',
             items: [
                {
-                   xtype: 'studentlist-Master',
+                   
+                   xtype: 'studentlist-View'
                }
             ]
 

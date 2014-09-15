@@ -8,7 +8,7 @@
     ],
 
     viewModel: {
-        type: 'detailform'
+        type: 'detail'
     },
     controller: 'detail',
     title: 'Edit Students',
@@ -19,39 +19,41 @@
     items: [
         {
             xtype: 'textfield',
-            bind: '{rec.FirstName}',
+            bind: '{studentInfo.student.FirstName}',
             fieldLabel: 'Имя'
         },
 		{
 		    xtype: 'textfield',
-		    bind: '{rec.LastName}',
+		    bind: '{studentInfo.student.LastName}',
 		    fieldLabel: 'Фамилия'
 		},
         {
             xtype: 'textfield',
-            bind: '{rec.SecondName}',
+            bind: '{studentInfo.student.SecondName}',
             fieldLabel: 'Отчество'
         },
         {
             xtype: 'datefield',
             format: 'Y-m-d',
-            bind: '{rec.BirthDate}',
+            bind: '{studentInfo.student.BirthDate}',
             fieldLabel: 'Дата рождения'
         },
         {
             xtype: 'datefield',
             format: 'Y-m-d',
-            bind: '{rec.IncomDate}',
+            bind: '{studentInfo.student.IncomDate}',
             fieldLabel: 'Дата поступления'
         },
         {
             xtype: 'hiddenfield',
-            bind: '{rec.id}'
+            bind: '{studentInfo.student.id}'
         },
         {
             xtype: 'button',
             text: 'Save',
-            hidden: true,
+            bind: {
+                hidden: '{!studentInfo.isModified}'
+            },
             reference: 'save',
             margin: 10,
             itemId: 'SaveRecord',
@@ -64,7 +66,7 @@
             text: 'Add',
             reference: 'add',
             margin: 10,
-            hidden: true,
+            hidden: '{!studentInfo.isAdded}',
             itemId: 'AddRecord',
             listeners: {
                 click: 'onAddRecord'
