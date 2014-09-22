@@ -17,7 +17,6 @@ namespace StudentsList.Controllers
             using (var StudentsDb = new StudentsContext())
             {
                 return StudentsDb.Students.ToList();
-              //  return JsonConvert.SerializeObject(StudentsDb.Students);
             }
         }
 

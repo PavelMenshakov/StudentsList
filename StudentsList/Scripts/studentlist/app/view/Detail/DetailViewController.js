@@ -3,8 +3,9 @@
     alias: 'controller.detail',
 
     onSaveChanges: function (saveButton, e, eOpts) {
-        this.getViewModel().getData().rec.save();
+        this.getViewModel().getData().studentInfo.student.save();
     },
+
     onAddRecord: function (saveButton, e, eOpts) {
         var masterView = this.getViewModel().getParent().getView(),
             groupBox = masterView.lookupReference('Header').lookupReference('GroupBox'),

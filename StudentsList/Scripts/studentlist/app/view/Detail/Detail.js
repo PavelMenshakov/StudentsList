@@ -8,10 +8,9 @@
     ],
 
     viewModel: {
-        type: 'detail'
+        type: 'detail',
     },
     controller: 'detail',
-    title: 'Edit Students',
     frame: true,
     padding: 10,
     reference: 'DetailView',
@@ -33,6 +32,20 @@
             fieldLabel: 'Отчество'
         },
         {
+            xtype: 'radiogroup',
+            fieldLabel: 'Radios',
+            items: [{
+                boxLabel: 'Мужской',
+                name: 'Sex',
+                inputValue: true,
+            }, {
+                boxLabel: 'Женский',
+                name: 'Sex',
+                inputValue: false
+            }],
+            reference: 'RadioG',
+        },
+        {
             xtype: 'datefield',
             format: 'Y-m-d',
             bind: '{studentInfo.student.BirthDate}',
@@ -52,7 +65,7 @@
             xtype: 'button',
             text: 'Save',
             bind: {
-                hidden: '{!studentInfo.isModified}'
+                hidden: '{!studentInfo.isModifed}'
             },
             reference: 'save',
             margin: 10,
@@ -66,7 +79,9 @@
             text: 'Add',
             reference: 'add',
             margin: 10,
-            hidden: '{!studentInfo.isAdded}',
+            bind: {
+                hidden: '{!studentInfo.isAdded}'
+            },
             itemId: 'AddRecord',
             listeners: {
                 click: 'onAddRecord'

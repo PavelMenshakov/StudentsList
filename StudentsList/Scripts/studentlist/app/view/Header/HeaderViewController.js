@@ -3,9 +3,6 @@
     alias: 'controller.header',
 
     onGroupChange: function (field, newValue, oldValue, eOpts) {
-        var viewModel = this.getViewModel();
-        store.load({
-            params: { Id: newValue }
-        });
+        this.getViewModel().set('studentInfo.group', newValue);
     }
 });

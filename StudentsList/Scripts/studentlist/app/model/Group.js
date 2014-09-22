@@ -14,6 +14,13 @@
             type: 'string'
         }
     ],
+
+    hasMany: [
+    {
+        name: 'Students',              
+        model: 'studentlist.model.Student' 
+    }
+    ],
     proxy: {
         type: 'rest',
         url: 'api/Groups',

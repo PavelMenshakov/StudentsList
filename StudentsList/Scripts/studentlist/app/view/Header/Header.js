@@ -10,10 +10,12 @@
     },
     controller: 'header',
     xtype: 'studentlist-Header',
+    
     reference: 'Header',
     items: [{
+        padding: '5 5 5 5',
         xtype: 'combobox',
-        fieldLabel: 'Choose group',
+        fieldLabel: 'Список групп',
         bind:{
             store: '{groups}'
         },

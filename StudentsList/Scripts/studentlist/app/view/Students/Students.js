@@ -10,7 +10,7 @@
         type: 'students'
     },
     bind: {
-        store: '{students}'
+        store: '{group}'
     },
     tbar: [{
         text: 'Add',
@@ -21,7 +21,9 @@
     }, {
         text: 'Delete',
         reference: 'delete',
-        hidden: true,
+        bind: {
+            disabled: '{!StudentsView.selection}'
+        },
         listeners: {
             click: 'onDeleteClick'
         }
@@ -42,6 +44,7 @@
     ],
     listeners: {
         rowclick: 'onRowSelect',
+        containerclick: 'onContainerClick',
     },
     reference: 'StudentsView',
 });

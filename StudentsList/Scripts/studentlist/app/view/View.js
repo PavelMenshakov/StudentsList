@@ -22,22 +22,24 @@
         title: 'Список студентов',
         region: 'west',
         xtype: 'studentlist-Students',
-        title: 'Navigation',
         floatable: false,
         width: 300,
         minWidth: 300,
-        maxWidth: 500,
-    }, {        
+        maxWidth: 500
+    }, {
+        title: 'Подробная информация',
         collapsible: false,
         region: 'center',
         xtype: 'studentlist-Detail',
         margin: '5 0 0 0'
     }, {
+        title: 'Выберите группу',
         region: 'north',
         minHeight: 75,
         maxHeight: 150,
         xtype: 'studentlist-Header',
-        height: 100
+        height: 100,
+        margin: '5 0 0 0'
     }]
 
 });
