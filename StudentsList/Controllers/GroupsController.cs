@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using StudentsList.Controllers;
 
 namespace StudentsList.Controllers
 {
@@ -16,33 +17,27 @@ namespace StudentsList.Controllers
         {
             using (var StudentsDb = new StudentsContext())
             {
-                return StudentsDb.Groups.Include("Students").ToList();
+                return StudentsDb.Groups.ToList();
             }
         }
 
         // GET: api/Groups/5
-        public List<Student> Get(int id)
+        public Group Get(int id)
         {
-            List<Student> st = new List<Student>();
+            StudentsController sc = new StudentsController();
             using (var StudentsDb = new StudentsContext())
             {
-                var group = StudentsDb.Groups.Include("Students").FirstOrDefault(t => t.Id == id);
-                foreach (var student in group.Students)
+                Group sendedGroup = new Group();
+                Group group = StudentsDb.Groups.Include("Students").FirstOrDefault(t => t.Id == id);
+                sendedGroup.Id = group.Id;
+                sendedGroup.Name = group.Name;
+                sendedGroup.Students = new List<Student>(); 
+                foreach(Student st in group.Students)
                 {
-                    st.Add(new Student
-                    {
-                        FirstName = student.FirstName,
-                        LastName = student.LastName,
-                        SecondName = student.SecondName,
-                        BirthDate = student.BirthDate,
-                        IncomDate = student.IncomDate,
-                        Sex = student.Sex,
-                        Id = student.Id
-                    });
+                    sendedGroup.Students.Add(sc.Get(st.Id));
                 }
-
+                return sendedGroup;
             }
-            return st;
         }
 
         // POST: api/Groups

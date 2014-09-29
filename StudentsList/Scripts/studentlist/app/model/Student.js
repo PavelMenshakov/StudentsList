@@ -33,5 +33,18 @@
             type: 'date'
         }
     ],
+    hasMany:{
+        name: 'Subjects',
+        model: 'studentlist.model.Subject'
+    },
+
+    proxy: {
+        type: 'rest',
+        url: 'api/Students/',
+        reader: {
+            type: 'json'
+        }
+    },
+
     idProperty: 'Id'
 });

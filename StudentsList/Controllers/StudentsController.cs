@@ -12,7 +12,7 @@ namespace StudentsList.Controllers
     public class StudentsController : ApiController
     {
         // GET: api/Students
-        public List<Student> Get()
+        public ICollection<Student> Get()
         {
             using (var StudentsDb = new StudentsContext())
             {
@@ -21,26 +21,35 @@ namespace StudentsList.Controllers
         }
 
         // GET: api/Students/5
-        public List<Student> Get(int id)
+        public Student Get(long id)
         {
-            List<Student> st = new List<Student>();
+            Student st = new Student();
             using (var StudentsDb = new StudentsContext())
             {
-                var group = StudentsDb.Groups.Include("Students").FirstOrDefault(t => t.Id == id);
-                foreach (var student in group.Students)
+                var students = from Student in StudentsDb.Students.Include("Subjects")
+                               where Student.Id == id
+                               select Student;
+                foreach (var student in students)
                 {
-                    st.Add(new Student
+                    ICollection<Subject> subCol = new List<Subject>();
+                    foreach (var sub in student.Subjects)
                     {
-                        FirstName = student.FirstName,
-                        LastName = student.LastName,
-                        SecondName = student.SecondName,
-                        BirthDate = student.BirthDate,
-                        IncomDate = student.IncomDate,
-                        Sex = student.Sex,
-                        Id = student.Id
-                    });
+                        subCol.Add(new Subject
+                        {
+                            Id = sub.Id,
+                            Name = sub.Name,
+                            Hours = sub.Hours
+                        });
+                    }
+                    st.Id = student.Id;
+                    st.FirstName = student.FirstName;
+                    st.LastName = student.LastName;
+                    st.SecondName = student.SecondName;
+                    st.BirthDate = student.BirthDate;
+                    st.IncomDate = student.IncomDate;
+                    st.Sex = student.Sex;
+                    st.Subjects = subCol;
                 }
-
             }
             return st;
         }

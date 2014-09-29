@@ -13,13 +13,13 @@
         store: '{group}'
     },
     tbar: [{
-        text: 'Add',
+        text: 'Добавить',
         reference: 'add',
         listeners: {
             click: 'onAddClick'
         }
     }, {
-        text: 'Delete',
+        text: 'Удалить',
         reference: 'delete',
         bind: {
             disabled: '{!StudentsView.selection}'
@@ -43,7 +43,7 @@
     }
     ],
     listeners: {
-        rowclick: 'onRowSelect',
+        itemclick: 'onRowSelect',
         containerclick: 'onContainerClick',
     },
     reference: 'StudentsView',

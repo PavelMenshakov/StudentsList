@@ -16,14 +16,14 @@
         collapsible: true,
         split: true,
     },
-    height: 600,
+    height: 650,
     width: '100%',
     items: [{
         title: 'Список студентов',
         region: 'west',
         xtype: 'studentlist-Students',
         floatable: false,
-        width: 300,
+        width: 302,
         minWidth: 300,
         maxWidth: 500
     }, {

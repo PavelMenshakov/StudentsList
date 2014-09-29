@@ -12,7 +12,7 @@
             isModifed: null
         },
         student: {
-    Sex: false
+            Sex: false
         }
     }
 });

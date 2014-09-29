@@ -44,5 +44,4 @@
             this.getViewModel().set('studentInfo.isModifed', true);
         }
     }
-
 });

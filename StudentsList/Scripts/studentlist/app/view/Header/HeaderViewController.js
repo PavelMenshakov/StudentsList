@@ -4,5 +4,6 @@
 
     onGroupChange: function (field, newValue, oldValue, eOpts) {
         this.getViewModel().set('studentInfo.group', newValue);
+
     }
 });

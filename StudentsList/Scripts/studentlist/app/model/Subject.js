@@ -1,5 +1,6 @@
 ﻿Ext.define('studentlist.model.Subject', {
     extend: 'Ext.data.Model',
+
     fields: [
         {
             name: 'Id',
@@ -13,7 +14,6 @@
             name: 'Hours',
             type: 'int'
         }
-    ]
-    ,
+    ],
     idProperty: 'Id'
 });
