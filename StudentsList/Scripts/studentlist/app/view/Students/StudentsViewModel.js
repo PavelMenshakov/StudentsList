@@ -15,14 +15,13 @@
                 extraParams: { Id: '{studentInfo.group}' },
                 reader: {
                     type: 'json',
-                    rootProperty:'Students'
+                    rootProperty:'students'
                 }
             }
         },
         student: {
             storeId: 'student',
             autoSync: true,
-            autoLoad: true,
             model: 'studentlist.model.Student'
         }
     }

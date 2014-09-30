@@ -10,10 +10,9 @@ namespace StudentsList.Models
 {
     public class Visit
     {
-        [Key]
-        public long Id { get; set; }
-        public int Absenteeism { get; set; }
-        public int VisitCount { get; set; }
-        public Subject VisitSubject { get; set; }
+        public long id { get; set; }
+        public int absenteeism { get; set; }
+        public int visitCount { get; set; }
+        public Subject visitSubject { get; set; }
     }
 }

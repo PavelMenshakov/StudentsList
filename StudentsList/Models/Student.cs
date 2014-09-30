@@ -10,14 +10,14 @@ namespace StudentsList.Models
 {
     public class Student
     {
-        public long Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string SecondName { get; set; }
-        public bool Sex { get; set; }
-        public DateTime BirthDate { get; set; }
-        public DateTime IncomDate { get; set; }
-        public ICollection<Subject> Subjects { get; set; }
-        public ICollection<Visit> Visits { get; set; }
+        public long id { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string secondName { get; set; }
+        public bool sex { get; set; }
+        public DateTime birthDate { get; set; }
+        public DateTime incomDate { get; set; }
+        public ICollection<Subject> subjects { get; set; }
+        public ICollection<Visit> visits { get; set; }
     }
 }

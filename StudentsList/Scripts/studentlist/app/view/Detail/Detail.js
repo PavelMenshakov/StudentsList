@@ -40,17 +40,17 @@
             items: [
                 {
                     xtype: 'textfield',
-                    bind: '{studentInfo.student.FirstName}',
+                    bind: '{studentInfo.student.firstName}',
                     fieldLabel: 'Имя'
                 },
                 {
                     xtype: 'textfield',
-                    bind: '{studentInfo.student.LastName}',
+                    bind: '{studentInfo.student.lastName}',
                     fieldLabel: 'Фамилия'
                 },
                 {
                     xtype: 'textfield',
-                    bind: '{studentInfo.student.SecondName}',
+                    bind: '{studentInfo.student.secondName}',
                     fieldLabel: 'Отчество'
                 },
                 {
@@ -71,18 +71,18 @@
                 {
                     xtype: 'datefield',
                     format: 'Y-m-d',
-                    bind: '{studentInfo.student.BirthDate}',
+                    bind: '{studentInfo.student.birthDate}',
                     fieldLabel: 'Дата рождения'
                 },
                 {
                     xtype: 'datefield',
                     format: 'Y-m-d',
-                    bind: '{studentInfo.student.IncomDate}',
+                    bind: '{studentInfo.student.incomDate}',
                     fieldLabel: 'Дата поступления'
                 },
                 {
                     xtype: 'hiddenfield',
-                    bind: '{studentInfo.student.Id}'
+                    bind: '{studentInfo.student.id}'
                 },
                 {
                     xtype: 'button',
@@ -116,9 +116,7 @@
         {
             xtype: 'polar',
             width: 600,
-            bind:{
-                store: '{subjects}'
-            },
+            bind: '{studentInfo.student.Subjects}',
             height: 260,
             insetPadding: 50,
             innerPadding: 20,
@@ -138,10 +136,10 @@
             series: [{
                 type: 'pie',
 
-                angleField: 'Hours',
+                angleField: 'hours',
                 donut: 60,
                 label: {
-                    field: 'Name',
+                    field: 'name',
                     display: 'outside'
                 },
                 highlight: true,
@@ -149,7 +147,7 @@
                     trackMouse: true,
                     style: 'background: #fff',
                     renderer: function(storeItem, item) {
-                        this.setHtml(storeItem.get('Name') + ': ' + storeItem.get('Hours'));
+                        this.setHtml(storeItem.get('name') + ': ' + storeItem.get('hours'));
                     }
                 }
             }]
@@ -162,9 +160,7 @@
             title: 'Список предметов',
             width: '100%',
             height: 230,
-            bind: {
-                store: '{subjects}'
-            },
+            bind: '{studentInfo.student.Subjects}',
             tbar: [{
                 text: 'Добавить',
                 listeners: {
@@ -181,8 +177,8 @@
             }],
             reference: 'SubjectsGrid',
             columns: [
-                { text: 'Название', dataIndex: 'Name' },
-                { text: 'Часы', dataIndex: 'Hours' },
+                { text: 'Название', dataIndex: 'name' },
+                { text: 'Часы', dataIndex: 'hours' },
                 {
                     xtype: 'widgetcolumn',
                     width: 90,

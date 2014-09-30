@@ -19,8 +19,8 @@
         bind:{
             store: '{groups}'
         },
-        displayField: 'Name',
-        valueField: 'Id',
+        displayField: 'name',
+        valueField: 'id',
         listeners: {
             change: 'onGroupChange'
         },

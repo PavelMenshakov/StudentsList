@@ -5,38 +5,39 @@
     ],
     fields: [
         {
-            name: 'Id',
+            name: 'id',
             type: 'int'
         },
         {
-            name: 'FirstName',
+            name: 'firstName',
             type: 'string'
         },
         {
-            name: 'LastName',
+            name: 'lastName',
             type: 'string'
         },
         {
-            name: 'SecondName',
+            name: 'secondName',
             type: 'string'
         },
         {
-            name: 'Sex',
+            name: 'sex',
             type: 'bool'
         },
         {
-            name: 'BirthDate',
+            name: 'birthDate',
             type: 'date'
         },
         {
-            name: 'IncomDate',
+            name: 'incomDate',
             type: 'date'
         }
     ],
-    hasMany:{
-        name: 'Subjects',
-        model: 'studentlist.model.Subject'
-    },
+
+    hasMany: [{
+        model: 'studentlist.model.Subject',
+        name: 'Subjects'
+    }] ,
 
     proxy: {
         type: 'rest',
@@ -46,5 +47,5 @@
         }
     },
 
-    idProperty: 'Id'
+    
 });

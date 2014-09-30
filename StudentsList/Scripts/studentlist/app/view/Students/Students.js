@@ -31,15 +31,15 @@
     columns: [
     {
         text: 'Имя',
-        dataIndex: 'FirstName'
+        dataIndex: 'firstName'
     },
     {
         text: 'Фамилия',
-        dataIndex: 'LastName',
+        dataIndex: 'lastName',
     },
     {
         text: 'Отчество',
-        dataIndex: 'SecondName'
+        dataIndex: 'secondName'
     }
     ],
     listeners: {

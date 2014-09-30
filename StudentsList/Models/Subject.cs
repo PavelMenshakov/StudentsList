@@ -9,12 +9,12 @@ namespace StudentsList.Models
 {    
     public class Subject
     {
-        public long Id { get; set; }
+        public long id { get; set; }
         
-        public string Name { get; set; }
+        public string name { get; set; }
         
-        public long Hours { get; set; }
+        public long hours { get; set; }
         
-        public ICollection<Student> Students { get; set; }
+        public ICollection<Student> students { get; set; }
     }
 }

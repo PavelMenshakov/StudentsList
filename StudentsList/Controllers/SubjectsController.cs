@@ -22,14 +22,14 @@ namespace StudentsList.Controllers
             List<Subject> subCol = new List<Subject>();
             using (var StudentsDb = new StudentsContext())
             {
-                var student = StudentsDb.Students.Include("Subjects").First(t => t.Id == id);
-                foreach (var sub in student.Subjects)
+                var student = StudentsDb.Students.Include("Subjects").First(t => t.id == id);
+                foreach (var sub in student.subjects)
                 {
                     subCol.Add(new Subject
                     {
-                        Id = sub.Id,
-                        Name = sub.Name,
-                        Hours = sub.Hours
+                        id = sub.id,
+                        name = sub.name,
+                        hours = sub.hours
                     });
                 }
             }

@@ -4,6 +4,7 @@
 
 
     onRowSelect: function (view, record, tr, rowIndex, e, eOpts) {
+        debugger;
         this.getViewModel().set('studentInfo.student', record);
         this.changeAction(false);
     },

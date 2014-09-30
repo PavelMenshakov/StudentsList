@@ -1,19 +1,17 @@
 ﻿Ext.define('studentlist.model.Subject', {
     extend: 'Ext.data.Model',
-
     fields: [
         {
-            name: 'Id',
+            name: 'id',
             type: 'int'
         },
         {
-            name: 'Name',
+            name: 'name',
             type: 'string'
         },
         {
-            name: 'Hours',
+            name: 'hours',
             type: 'int'
         }
-    ],
-    idProperty: 'Id'
+    ]
 });

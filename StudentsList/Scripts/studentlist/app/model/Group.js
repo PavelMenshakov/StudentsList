@@ -3,24 +3,21 @@
     requires: [
         'studentlist.model.Student'
     ],
-    idProperty: 'Id',
     fields: [
         {
-            name: 'Id',
+            name: 'id',
             type: 'int'
         },
         {
-            name: 'Name',
+            name: 'name',
             type: 'string'
         }
     ],
 
-    hasMany: [
-    {
-        name: 'Students',              
-        model: 'studentlist.model.Student' 
-    }
-    ],
+    hasMany: [{
+        model: 'studentlist.model.Student',
+        name: 'Students'
+    }],
     proxy: {
         type: 'rest',
         url: 'api/Groups',

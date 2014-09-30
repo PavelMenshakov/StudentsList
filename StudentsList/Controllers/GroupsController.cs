@@ -13,7 +13,7 @@ namespace StudentsList.Controllers
     public class GroupsController : ApiController
     {
         // GET: api/Groups
-        public List<Group> Get()
+        public Object Get()
         {
             using (var StudentsDb = new StudentsContext())
             {
@@ -22,19 +22,19 @@ namespace StudentsList.Controllers
         }
 
         // GET: api/Groups/5
-        public Group Get(int id)
+        public Object Get(int id)
         {
             StudentsController sc = new StudentsController();
             using (var StudentsDb = new StudentsContext())
             {
                 Group sendedGroup = new Group();
-                Group group = StudentsDb.Groups.Include("Students").FirstOrDefault(t => t.Id == id);
-                sendedGroup.Id = group.Id;
-                sendedGroup.Name = group.Name;
-                sendedGroup.Students = new List<Student>(); 
-                foreach(Student st in group.Students)
+                Group group = StudentsDb.Groups.Include("Students").FirstOrDefault(t => t.id == id);
+                sendedGroup.id = group.id;
+                sendedGroup.name = group.name;
+                sendedGroup.students = new List<Student>(); 
+                foreach(Student st in group.students)
                 {
-                    sendedGroup.Students.Add(sc.Get(st.Id));
+                    sendedGroup.students.Add(sc.Get(st.id));
                 }
                 return sendedGroup;
             }

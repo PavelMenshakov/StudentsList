@@ -27,28 +27,28 @@ namespace StudentsList.Controllers
             using (var StudentsDb = new StudentsContext())
             {
                 var students = from Student in StudentsDb.Students.Include("Subjects")
-                               where Student.Id == id
+                               where Student.id == id
                                select Student;
                 foreach (var student in students)
                 {
                     ICollection<Subject> subCol = new List<Subject>();
-                    foreach (var sub in student.Subjects)
+                    foreach (var sub in student.subjects)
                     {
                         subCol.Add(new Subject
                         {
-                            Id = sub.Id,
-                            Name = sub.Name,
-                            Hours = sub.Hours
+                            id = sub.id,
+                            name = sub.name,
+                            hours = sub.hours
                         });
                     }
-                    st.Id = student.Id;
-                    st.FirstName = student.FirstName;
-                    st.LastName = student.LastName;
-                    st.SecondName = student.SecondName;
-                    st.BirthDate = student.BirthDate;
-                    st.IncomDate = student.IncomDate;
-                    st.Sex = student.Sex;
-                    st.Subjects = subCol;
+                    st.id = student.id;
+                    st.firstName = student.firstName;
+                    st.lastName = student.lastName;
+                    st.secondName = student.secondName;
+                    st.birthDate = student.birthDate;
+                    st.incomDate = student.incomDate;
+                    st.sex = student.sex;
+                    st.subjects = subCol;
                 }
             }
             return st;
@@ -64,23 +64,6 @@ namespace StudentsList.Controllers
         {
             using (StudentsContext ctx = new StudentsContext())
             {
-                var original = ctx.Students.First(s => s.Id == id);
-                if (original != null)
-                {
-                    if (!string.IsNullOrEmpty(value.FirstName))
-                        original.FirstName = value.FirstName;
-                    if (!string.IsNullOrEmpty(value.LastName))
-                        original.LastName = value.LastName;
-                    if (!string.IsNullOrEmpty(value.SecondName))
-                        original.SecondName = value.SecondName; 
-                    if(value.BirthDate.Year != 0001)
-                    original.BirthDate = value.BirthDate;
-                    if (value.IncomDate.Year != 0001)
-                    original.IncomDate = value.IncomDate;
-                    original.Sex = value.Sex;
-                    ctx.SaveChanges();
-                }
-
             }
         }
 
