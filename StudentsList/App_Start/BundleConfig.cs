@@ -17,7 +17,8 @@ namespace StudentsList.App_Start
             bundles.Add(new ScriptBundle("~/bundles/extjs").Include(
                 "~/Scripts/studentlist.js",
                 "~/Scripts/ext-all-debug.js",
-                "~/Scripts/sencha-charts-debug.js"));
+                "~/Scripts/sencha-charts-debug.js",
+                "~/Scripts/ext-locale-ru-debug.js"));
 
         }
     }

@@ -8,11 +8,9 @@
             student: null,
             visits: null,
             subjects: null,
+            theSubject: null,
             isAdded: null,
             isModifed: null
-        },
-        student: {
-            Sex: false
         }
     }
 });

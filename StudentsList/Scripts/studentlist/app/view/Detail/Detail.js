@@ -18,7 +18,7 @@
 
     layout: {
         type: 'table',
-        columns: 2,
+        columns: 3,
         tableAttrs: {
             style: {
                 width: '100%'
@@ -35,7 +35,7 @@
     items: [
         {
             xtype: 'form',
-            width: 300,
+            width: '100%',
             frame: true,
             items: [
                 {
@@ -115,7 +115,7 @@
 
         {
             xtype: 'polar',
-            width: 600,
+            width: 300,
             bind: '{studentInfo.student.Subjects}',
             height: 260,
             insetPadding: 50,
@@ -152,7 +152,6 @@
                 }
             }]
         },
-
         {
             frame: true,
             xtype: 'grid',
@@ -185,11 +184,11 @@
                     widget: {
                         xtype: 'button',
                         text: 'Изменить',
-                        handler: 'onEditCustomerClick'
+                        handler: 'onEditButtonClick'
                     }
                 }
             ],
-            colspan: 2
+            //colspan: 3
         }
     ]
 });

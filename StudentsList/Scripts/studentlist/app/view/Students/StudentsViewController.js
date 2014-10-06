@@ -4,7 +4,6 @@
 
 
     onRowSelect: function (view, record, tr, rowIndex, e, eOpts) {
-        debugger;
         this.getViewModel().set('studentInfo.student', record);
         this.changeAction(false);
     },
@@ -30,6 +29,7 @@
 
     resetStudent: function() {
         var student = Ext.create('studentlist.model.Student', null);
+        student.Subjects().setData(Ext.create('studentlist.model.Subject', null));
         this.getViewModel().set('studentInfo.student', student);
     },
 

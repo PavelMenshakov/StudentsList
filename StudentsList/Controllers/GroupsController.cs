@@ -46,7 +46,7 @@ namespace StudentsList.Controllers
         }
 
         // PUT: api/Groups/5
-        public void Put(int id, Group value)
+        public void Put(int id, Student value)
         {
             Group gr = JsonConvert.DeserializeObject<Group>(value.ToString());
         }

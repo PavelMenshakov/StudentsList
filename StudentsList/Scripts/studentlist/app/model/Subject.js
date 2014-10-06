@@ -1,5 +1,9 @@
 ﻿Ext.define('studentlist.model.Subject', {
     extend: 'Ext.data.Model',
+    requires: [
+        'studentlist.model.Visit'
+    ],
+
     fields: [
         {
             name: 'id',
@@ -13,5 +17,17 @@
             name: 'hours',
             type: 'int'
         }
-    ]
+
+    ],
+    hasMany: [{
+        model: 'studentlist.model.Visit',
+        name: 'Visits'
+    }],
+    proxy: {
+        type: 'rest',
+        url: 'api/Subjects/',
+        reader: {
+            type: 'json'
+        }
+    }
 });

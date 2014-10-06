@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Web.Http;
 
 namespace StudentsList.Controllers
@@ -23,35 +24,48 @@ namespace StudentsList.Controllers
         // GET: api/Students/5
         public Student Get(long id)
         {
-            Student st = new Student();
+            Student sendedStudent = new Student();
+            SubjectsController sc = new SubjectsController();
+            VisitsController vc = new VisitsController();
             using (var StudentsDb = new StudentsContext())
             {
-                var students = from Student in StudentsDb.Students.Include("Subjects")
-                               where Student.id == id
-                               select Student;
-                foreach (var student in students)
+                Student student = StudentsDb.Students.Include("Subjects").Include("Visits").FirstOrDefault(t => t.id == id);
+
+                ICollection<Visit> visitCol = new List<Visit>();
+                foreach (var visit in student.visits)
                 {
-                    ICollection<Subject> subCol = new List<Subject>();
-                    foreach (var sub in student.subjects)
-                    {
-                        subCol.Add(new Subject
-                        {
-                            id = sub.id,
-                            name = sub.name,
-                            hours = sub.hours
-                        });
-                    }
-                    st.id = student.id;
-                    st.firstName = student.firstName;
-                    st.lastName = student.lastName;
-                    st.secondName = student.secondName;
-                    st.birthDate = student.birthDate;
-                    st.incomDate = student.incomDate;
-                    st.sex = student.sex;
-                    st.subjects = subCol;
+                    visitCol.Add(vc.Get(visit.id));
                 }
+                
+                ICollection<Subject> subCol = new List<Subject>();
+                foreach (var sub in student.subjects)
+                {
+                    Subject temp = new Subject();
+                    temp = sc.Get(sub.id);
+                    ICollection<Visit> removeList = new List<Visit>();
+                    foreach (var sendV in temp.visits)
+                    {
+                        int flag = 0;
+                        foreach (var visit in visitCol)
+                        {
+                            if (sendV.id == visit.id) flag = 1;
+                        }
+                        if (flag == 0) removeList.Add(sendV);
+                    }
+                    foreach (var rv in removeList) temp.visits.Remove(rv);
+                    subCol.Add(temp);
+                }
+
+                sendedStudent.id = student.id;
+                sendedStudent.firstName = student.firstName;
+                sendedStudent.lastName = student.lastName;
+                sendedStudent.secondName = student.secondName;
+                sendedStudent.sex = student.sex;
+                sendedStudent.subjects = subCol;
+                sendedStudent.incomDate = student.incomDate;
+                sendedStudent.birthDate = student.birthDate;
             }
-            return st;
+            return sendedStudent;
         }
 
         // POST: api/Students
@@ -60,10 +74,32 @@ namespace StudentsList.Controllers
         }
 
         // PUT: api/Students/5
-        public void Put(int id, Student value)
+        public void Put(int id, Object[] newValues)
         {
-            using (StudentsContext ctx = new StudentsContext())
+ //if (newValues.HasValue)
             {
+
+                using (StudentsContext ctx = new StudentsContext())
+                {
+                    var student = ctx.Students.Find(id);
+                    Type myType = newValues.GetType();
+                    IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
+                    var entry = ctx.Entry(student);
+
+                    foreach (PropertyInfo prop in props)
+                    {
+                        object propValue = prop.GetValue(newValues, null);
+                        DateTime parsedDateTime;
+                        if(DateTime.TryParse(propValue.ToString(),out parsedDateTime))
+                        {
+
+                        } else {}
+                        if (!String.IsNullOrEmpty(propValue.ToString()))
+                        {
+                            entry.Property(prop.Name).CurrentValue = propValue;
+                        }
+                    }
+                }
             }
         }
 
