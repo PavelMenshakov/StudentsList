@@ -12,6 +12,7 @@
     bind: {
         store: '{group}'
     },
+    selModel: {  allowDeselect: true },
     tbar: [{
         text: 'Добавить',
         reference: 'add',

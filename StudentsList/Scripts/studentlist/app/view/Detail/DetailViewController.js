@@ -64,7 +64,11 @@
     },
 
     onDeleteVisitClick: function () {
-        debugger;
+        var visitGrid = this.getView().lookupReference('visits'),
+            store = visitGrid.getStore(),
+            selection = visitGrid.getSelectionModel().getSelection()[0];
+        visitGrid.editingPlugin.cancelEdit();
+        store.remove(selection);
     },
     
 

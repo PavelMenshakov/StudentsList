@@ -627,6 +627,7 @@
     <Content Include="Scripts\ext-theme-crisp-debug.js" />
     <Content Include="Scripts\sencha-charts-debug.js" />
     <Content Include="Scripts\studentlist.js" />
+    <Content Include="Scripts\ext-locale-override.js" />
     <Content Include="Scripts\studentlist\app\model\Group.js" />
     <Content Include="Scripts\studentlist\app\model\Subject.js" />
     <Content Include="Scripts\studentlist\app\model\Visit.js" />
@@ -661,6 +662,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410011004575_InitialCreate.cs" />
+    <Compile Include="Migrations\201410011004575_InitialCreate.Designer.cs">
+      <DependentUpon>201410011004575_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410080833152_sexTypeChanged.cs" />
+    <Compile Include="Migrations\201410080833152_sexTypeChanged.Designer.cs">
+      <DependentUpon>201410080833152_sexTypeChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentsContext.cs" />
@@ -679,7 +689,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201410011004575_InitialCreate.resx">
+      <DependentUpon>201410011004575_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410080833152_sexTypeChanged.resx">
+      <DependentUpon>201410080833152_sexTypeChanged.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -74,11 +74,10 @@ namespace StudentsList.Controllers
         }
 
         // PUT: api/Students/5
-        public void Put(int id, Object[] newValues)
+        public void Put(int id, Student newValues)
         {
- //if (newValues.HasValue)
+            //if (newValues.HasValue)
             {
-
                 using (StudentsContext ctx = new StudentsContext())
                 {
                     var student = ctx.Students.Find(id);
@@ -89,14 +88,23 @@ namespace StudentsList.Controllers
                     foreach (PropertyInfo prop in props)
                     {
                         object propValue = prop.GetValue(newValues, null);
-                        DateTime parsedDateTime;
-                        if(DateTime.TryParse(propValue.ToString(),out parsedDateTime))
+                        if (propValue != null)
                         {
-
-                        } else {}
-                        if (!String.IsNullOrEmpty(propValue.ToString()))
-                        {
-                            entry.Property(prop.Name).CurrentValue = propValue;
+                            if (prop.Name == "incomDate" || prop.Name == "birthDate")
+                            {
+                                if(DateTime.Parse(propValue.ToString())!=DateTime.Parse("01.01.0001 0:00:00"))
+                                {
+                                    entry.Property(prop.Name).CurrentValue = propValue;
+                                    entry.Property(prop.Name).IsModified = true;
+                                    ctx.SaveChanges();
+                                }
+                            }
+                            else
+                            {
+                                entry.Property(prop.Name).CurrentValue = propValue;
+                                entry.Property(prop.Name).IsModified = true;
+                                ctx.SaveChanges();
+                            }
                         }
                     }
                 }

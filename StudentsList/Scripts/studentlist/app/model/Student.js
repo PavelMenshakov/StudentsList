@@ -22,15 +22,19 @@
         },
         {
             name: 'sex',
-            type: 'bool'
+            type: 'string'
         },
         {
             name: 'birthDate',
-            type: 'date'
+            type: 'date',
+            dateFormat: 'c',
+            format: 'Y-m-d'
         },
         {
             name: 'incomDate',
-            type: 'date'
+            type: 'date',
+            dateFormat: 'c',
+            format: 'Y-m-d'
         }
     ],
 

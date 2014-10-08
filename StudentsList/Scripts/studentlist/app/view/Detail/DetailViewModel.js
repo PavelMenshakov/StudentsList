@@ -3,5 +3,23 @@
     requires: [
         'studentlist.model.Subject'
     ],
-    alias: 'viewmodel.detail'
+    alias: 'viewmodel.detail',
+    // studentInfo.student
+    formulas: {
+        sex:{
+            bind: {
+                bindTo: '{studentInfo.student}',
+                //deep:true
+            },
+            get: function (student) {
+                var val = student && student.isModel ? student.get('sex') : null;
+                return val ? { sex: val } : null;
+            },
+
+            set: function (value) {
+                var val = Ext.isObject(value) ? value.sex : value;
+                this.get('studentInfo.student').set('sex', val);
+            }
+        }
+    }
 });

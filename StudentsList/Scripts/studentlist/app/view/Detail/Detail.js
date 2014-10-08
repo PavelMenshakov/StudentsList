@@ -57,14 +57,18 @@
                     xtype: 'radiogroup',
                     fieldLabel: 'Пол',
                     width: 275,
+                    bind: {
+                        value: '{sex}'
+                    },
                     items: [{
-                        boxLabel: 'Мужской',
-                        name: 'Sex',
-                        inputValue: true,
-                    }, {
                         boxLabel: 'Женский',
-                        name: 'Sex',
-                        inputValue: false
+                        name: 'sex',
+                        inputValue: "F"
+                    },
+                    {
+                        boxLabel: 'Мужской',
+                        name: 'sex',
+                        inputValue: "M"
                     }],
                     reference: 'RadioG',
                 },

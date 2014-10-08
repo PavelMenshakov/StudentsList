@@ -14,7 +14,7 @@ namespace StudentsList.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string secondName { get; set; }
-        public bool sex { get; set; }
+        public string sex { get; set; }
         public DateTime birthDate { get; set; }
         public DateTime incomDate { get; set; }
         public ICollection<Subject> subjects { get; set; }
