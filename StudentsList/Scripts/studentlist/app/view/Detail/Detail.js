@@ -2,7 +2,6 @@
     extend: 'Ext.panel.Panel',
 
     xtype: 'studentlist-Detail',
-
     requires: [
      'studentlist.view.Detail.DetailViewModel',
      'studentlist.view.Detail.DetailViewController',
@@ -11,6 +10,9 @@
     viewModel: {
         type: 'detail',
     },
+    bind:{
+        disabled: '{!studentInfo.group}'
+    },
 
     controller: 'detail',
 
@@ -18,7 +20,7 @@
 
     layout: {
         type: 'table',
-        columns: 3,
+        columns: 2,
         tableAttrs: {
             style: {
                 width: '100%'
@@ -100,6 +102,14 @@
                     listeners: {
                         click: 'onSaveChanges'
                     }
+                },{
+                    xtype: 'button',
+                    text: 'Сессия',
+                    margin: 10,
+                    itemId: 'Sessions',
+                    listeners: {
+                        click: 'onSessionChangeClick'
+                    }
                 },
                 {
                     xtype: 'button',
@@ -120,7 +130,10 @@
         {
             xtype: 'polar',
             width: 300,
-            bind: '{studentInfo.student.Subjects}',
+            bind: {
+                store: '{studentInfo.student.Subjects}',
+                disabled: '{studentInfo.isAdded}'
+                },
             height: 260,
             insetPadding: 50,
             innerPadding: 20,
@@ -163,7 +176,10 @@
             title: 'Список предметов',
             width: '100%',
             height: 230,
-            bind: '{studentInfo.student.Subjects}',
+            bind: {
+                store: '{studentInfo.student.Subjects}',
+                disabled: '{studentInfo.isAdded}'
+            },
             tbar: [{
                 text: 'Добавить',
                 listeners: {

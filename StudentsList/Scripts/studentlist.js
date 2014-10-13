@@ -12,10 +12,11 @@
 
     launch: function () {
         
-
+        var session = new Ext.data.Session();
 
         Ext.create('Ext.container.Viewport', {
             title: 'Student List',
+            session: session,
             items: [
                {  
                    xtype: 'studentlist-View'

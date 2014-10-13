@@ -38,7 +38,10 @@
             bind: '{theSubject.Visits}',
             plugins: {
                 ptype: 'rowediting',
-                clicksToEdit: 1
+                clicksToEdit: 1,
+                listeners: {
+                    edit: 'onEditVisits'
+                }
             },
             tbar: [{
                 text: 'Добавить',

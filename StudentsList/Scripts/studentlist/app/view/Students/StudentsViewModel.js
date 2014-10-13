@@ -18,6 +18,10 @@
                     rootProperty:'students'
                 }
             }
+        },
+        student: {
+            storeId: 'student',
+            model: 'studentlist.model.Student'
         }
     }
 });

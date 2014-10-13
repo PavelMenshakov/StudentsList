@@ -10,7 +10,9 @@
             subjects: null,
             theSubject: null,
             isAdded: null,
-            isModifed: null
+            isModifed: null,
+            reloadStore: true
+
         }
     }
 });

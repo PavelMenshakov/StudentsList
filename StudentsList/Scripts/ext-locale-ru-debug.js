@@ -74,7 +74,7 @@ Ext.define("Ext.locale.ru.form.field.Base", {
 // changing the msg text below will affect the LoadMask
 Ext.define("Ext.locale.ru.view.AbstractView", {
     override: "Ext.view.AbstractView",
-    loadingText: "Загрузка..."
+    loadingText: "Загружашки..."
 });
 
 Ext.define("Ext.locale.ru.picker.Date", {
@@ -144,7 +144,7 @@ Ext.define("Ext.locale.ru.form.field.ComboBox", {
     valueNotFoundText: undefined
 }, function() {
     Ext.apply(Ext.form.field.ComboBox.prototype.defaultListConfig, {
-        loadingText: "Загрузка..."
+        loadingText: "Загружашки..."
     });
 });
 

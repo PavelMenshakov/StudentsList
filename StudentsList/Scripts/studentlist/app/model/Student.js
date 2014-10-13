@@ -40,6 +40,7 @@
 
     hasMany: [{
         model: 'studentlist.model.Subject',
+        associationKey: 'subjects',
         name: 'Subjects'
     }] ,
 

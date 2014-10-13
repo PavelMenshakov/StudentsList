@@ -24,19 +24,20 @@ namespace StudentsList.Controllers
         // GET: api/Groups/5
         public Object Get(int id)
         {
-            StudentsController sc = new StudentsController();
+          //  StudentsController sc = new StudentsController();
             using (var StudentsDb = new StudentsContext())
             {
-                Group sendedGroup = new Group();
+            //    Group sendedGroup = new Group();
                 Group group = StudentsDb.Groups.Include("Students").FirstOrDefault(t => t.id == id);
-                sendedGroup.id = group.id;
-                sendedGroup.name = group.name;
-                sendedGroup.students = new List<Student>(); 
-                foreach(Student st in group.students)
-                {
-                    sendedGroup.students.Add(sc.Get(st.id));
-                }
-                return sendedGroup;
+              //  sendedGroup.id = group.id;
+              //  sendedGroup.name = group.name;
+              //  sendedGroup.students = new List<Student>(); 
+              //  foreach(Student st in group.students)
+              //  {
+              //      sendedGroup.students.Add(sc.Get(st.id));
+              //  }
+              //  return sendedGroup;
+                return group;
             }
         }
 

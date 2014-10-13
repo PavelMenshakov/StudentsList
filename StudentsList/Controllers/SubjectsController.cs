@@ -80,6 +80,43 @@ namespace StudentsList.Controllers
                 }
             }
         }
+
+
+
+        public void Put(int id, Subject newValues, int studentId)
+        {
+            using (StudentsContext ctx = new StudentsContext())
+            {
+                var subject = ctx.Subjects.Find(id);
+                Type myType = newValues.GetType();
+                IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
+                var entry = ctx.Entry(subject);
+
+                foreach (PropertyInfo prop in props)
+                {
+                    object propValue = prop.GetValue(newValues, null);
+
+                    if (propValue != null)
+                    {
+                        if (prop.Name == "hours")
+                        {
+                            if (Int64.Parse(propValue.ToString()) != 0)
+                            {
+                                entry.Property(prop.Name).CurrentValue = propValue;
+                                entry.Property(prop.Name).IsModified = true;
+                                ctx.SaveChanges();
+                            }
+                        }
+                        else
+                        {
+                            entry.Property(prop.Name).CurrentValue = propValue;
+                            entry.Property(prop.Name).IsModified = true;
+                            ctx.SaveChanges();
+                        }
+                    }
+                }
+            }
+        }
         
 
         // DELETE: api/Subjects/5

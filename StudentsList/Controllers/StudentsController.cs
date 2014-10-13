@@ -69,8 +69,21 @@ namespace StudentsList.Controllers
         }
 
         // POST: api/Students
-        public void Post(Student value)
+        public void Post(Student value, int groupId)
         {
+            using (var StudentsDb = new StudentsContext())
+            {
+                Group currentGroup = StudentsDb.Groups.Include("Students").First(t=>t.id == groupId);
+                currentGroup.students.Add(new Student { 
+                    lastName = value.lastName,
+                    firstName = value.firstName,
+                    secondName = value.secondName,
+                    sex = value.sex,
+                    birthDate = value.birthDate,
+                    incomDate = value.incomDate
+                });
+                StudentsDb.SaveChanges();
+            }
         }
 
         // PUT: api/Students/5

@@ -4,7 +4,16 @@
 
 
     onRowSelect: function (view, record, tr, rowIndex, e, eOpts) {
-        this.getViewModel().set('studentInfo.student', record);
+        var studentStore = this.getViewModel().getStore('student');
+        studentStore.load({
+            params: {
+                id: record.id
+            },
+            callback: function (records, operation, success) {
+                this.getViewModel().set('studentInfo.student', records[0]);
+            },
+            scope: this
+        });
         this.changeAction(false);
     },
 

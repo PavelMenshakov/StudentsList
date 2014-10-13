@@ -3,17 +3,58 @@
     alias: 'controller.detail',
 
     onSaveChanges: function (saveButton, e, eOpts) {
-        this.getViewModel().getData().studentInfo.student.save();
+        debugger;
+        this.getViewModel().get('studentInfo.student').save(
+            {
+                scope: this,
+                success: this.afterStudentSave,
+                failure: function(rec,op){
+                    console.error('Ошибочка при сохранинии студента', op);
+                }
+            });
     },
 
+    afterStudentSave: function(record, operation){
+        var me = this;
+        this.getViewModel().get('studentInfo.student').Subjects().save();
+        //switch(operation.action){
+        //    case 'create':
+               
+
+        //        break;
+
+        //    case 'update':
+
+        //        debugger;
+
+        //        break;
+        //}
+    },
+
+
     onAddRecord: function (saveButton, e, eOpts) {
-        
+        debugger;
+        var newStudent = this.getViewModel().get('studentInfo.student'),
+            groupId = this.getViewModel().get('studentInfo.group');
+        newStudent.save({
+            scope: this,
+            params: { groupId: groupId },
+            success: function () {
+                debugger;
+                this.getViewModel().set('studentInfo.reloadStore', true);
+            }
+        })
     },
    
     onEditButtonClick: function(button) {
         this.createDialog(button.getWidgetRecord());
     },
 
+
+
+
+
+    // Visits 
     createDialog: function(record) {
         var view = this.getView();
 
@@ -41,12 +82,38 @@
     
     onSaveSubjectClick: function (button)
     {
-        this.dialog.getViewModel().get('theSubject').save();
+        debugger;
+        var changesStore = this.getViewModel().get('studentInfo.student'),
+            theSubject = this.dialog.getViewModel().get('theSubject');
+        changesStore.Subjects().getById(theSubject.id).data = theSubject.data;
+        this.onCancelSubjectClick();
     },
 
     onCancelSubjectClick: function () {
         this.getView().remove(this.dialog);
         this.dialog = null;
+    },
+
+
+    onSessionChangeClick: function () {
+        var changes = this.getViewModel().getStore('studentChanges');
+        debugger;
+        if (changes.getCount() !== 0) {
+            new Ext.window.Window({
+                autoShow: true,
+                title: 'Session Changes',
+                modal: true,
+                width: 600,
+                height: 400,
+                layout: 'fit',
+                items: {
+                    xtype: 'textarea',
+                    value: changes.getAt(0)
+                }
+            });
+        } else {
+            Ext.Msg.alert('Ошибочка', 'Нет изменяшек за эту сессию');
+        }
     },
 
     // Черная магия

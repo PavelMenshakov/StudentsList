@@ -6,6 +6,7 @@
      'studentlist.view.Students.StudentsViewController'
     ],
     controller: 'students',
+    session:true,
     viewModel: {
         type: 'students'
     },

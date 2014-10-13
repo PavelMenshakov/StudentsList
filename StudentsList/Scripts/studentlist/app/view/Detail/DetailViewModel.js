@@ -4,7 +4,7 @@
         'studentlist.model.Subject'
     ],
     alias: 'viewmodel.detail',
-    // studentInfo.student
+
     formulas: {
         sex:{
             bind: {
@@ -20,6 +20,11 @@
                 var val = Ext.isObject(value) ? value.sex : value;
                 this.get('studentInfo.student').set('sex', val);
             }
+        }
+    },
+    stores: {
+        studentChanges: {
+            model: 'studentlist.model.Student'
         }
     }
 });
